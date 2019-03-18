@@ -67,7 +67,7 @@ impl Component for Paddle {
     type Storage = DenseVecStorage<Self>;
 }
 
-const PADDLE_HEIGHT: f32 = 16.0;
+pub const PADDLE_HEIGHT: f32 = 16.0;
 const PADDLE_WIDTH: f32 = 4.0;
 
 fn initialise_paddles(world: &mut World, sprite_sheet: SpriteSheetHandle) {
