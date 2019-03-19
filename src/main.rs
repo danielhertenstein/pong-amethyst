@@ -1,5 +1,6 @@
 extern crate amethyst;
 
+use amethyst::{LoggerConfig, StdoutLog, LogLevelFilter};
 use amethyst::core::transform::TransformBundle;
 use amethyst::input::InputBundle;
 use amethyst::prelude::*;
@@ -12,7 +13,12 @@ mod pong;
 use crate::pong::Pong;
 
 fn main() -> amethyst::Result<()> {
-    amethyst::start_logger(Default::default());
+    amethyst::start_logger(LoggerConfig {
+        stdout: StdoutLog::Colored,
+        level_filter: LogLevelFilter::Warn,
+        log_file: None,
+        allow_env_override: true,
+    });
 
     let path = format!(
         "{}/resources/display_config.ron",
